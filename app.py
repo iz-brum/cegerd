@@ -78,7 +78,6 @@ def mapa():
 
 # Adicione uma nova rota para chamar a função do web.py
 @app.route('/disparar_alerta_web', methods=['POST'])
-@login_required
 def disparar_alerta_web():
     try:
         # Importe as funções necessárias do web.py
