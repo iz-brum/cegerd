@@ -36,7 +36,7 @@ def load_user(user_id):
 def home():
     return render_template('pagina-inicial.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/pagina-inicial', methods=['POST'])
 def login():
     nome = request.form.get('nome')
     senha = request.form.get('senha')
@@ -47,7 +47,7 @@ def login():
         return redirect('/indexcomp') if user.role == 'user' else redirect('/pagina-inicial.html')
     else:
         error = "Senha incorreta. Tente novamente."
-        return render_template('login.html', error=error)
+        return render_template('index.html', error=error)
 
 @app.route('/indexcomp')
 @login_required
