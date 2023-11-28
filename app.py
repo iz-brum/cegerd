@@ -36,7 +36,7 @@ def load_user(user_id):
 def home():
     return render_template('login.html')
 
-@app.route('/index', methods=['POST'])
+@app.route('/pagina-inicial', methods=['POST'])
 def login():
     nome = request.form.get('nome')
     senha = request.form.get('senha')
