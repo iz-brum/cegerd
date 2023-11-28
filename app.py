@@ -79,7 +79,7 @@ def mapa():
     return render_template('mapa.html')
 
 # Adicione uma nova rota para chamar a função do web.py
-@app.route('/disparar_alerta_web', methods=['GET', 'POST', 'OPTIONS'])
+@app.route('./disparar_alerta_web', methods=['GET', 'POST', 'OPTIONS'])
 def disparar_alerta_web():
     try:
         # Importe as funções necessárias do web.py
