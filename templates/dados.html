@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Climáticos</title>
+    <link rel="stylesheet" href="static/estilod.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("static/fo.jpg"); /* Substitua "background.jpg" pelo caminho real da imagem */
+            background-size: cover;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.26); /* Adicionei um fundo branco semi-transparente para destacar o conteúdo */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        .iframe-container {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 2em; /* Alterei o tamanho da fonte do título */
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Dashboard Defesa Civil MT</h1>
+        <div class="iframe-container">
+            <iframe src="https://lookerstudio.google.com/embed/reporting/5d131117-3b05-4eb7-a86b-d9cd800858d9/page/uJhbD"
+                width="1400" height="750"></iframe>
+        </div>
+    </div>
+</body>
+</html>

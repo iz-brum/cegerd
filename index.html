@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="/static/css/mobile.css">
+    <title>Defesa Civil MT</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="navbar-container">
+            <h1 class="logo">Defesa Civil MT</h1>
+            <ul id="navbar-items">
+                <li><a href="#showcase">Início</a></li>
+                <li><a href="#clients">Sobre</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#alert">Alerta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="showcase">
+        <div id="showcase-container">
+            <h2>CEGERD</h2>
+            <p>Centro Estadual de Gerenciamento de Risco e Desastre</p>
+            <a href="{{ url_for('dados') }}" class="btn">DASHBOARD</a>
+            <a href="{{ url_for('mapa') }}" class="btn">MONITORAMENTO</a>
+        </div> 
+    </header>
+
+    <section id="alert">
+        <div class="headline">Disparo de Alerta</div>
+        <div id="alert-container">
+            <button id="dispararAlertaButton" class="custom-button"  style="padding: 15px 30px; font-size: 18px; margin: 0 auto;margin-bottom: 35px; display: block;">Disparar Alerta</button>
+        </div>
+        <p style="text-align: center;">Ao clicar espere até receber uma mensagem de retorno!</p>
+    </section>
+
+    <section id="clients">
+        <div class="headline">Mapeamento de Área de Risco</div>
+        <div id="clients-container">
+            <img src="/static/img/netflix.png" class="client" alt="">
+            <img src="/static/img/google.png" class="client" alt="">
+            <img src="/static/img/apple.png" class="client" alt="">
+            <img src="/static/img/microsoft.png" class="client" alt="">
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="headline">O que fazemos</div>
+        <div id="features-container">
+            <div class="feature">
+                <i class="fas fa-tachometer-alt fa-3x"></i>
+                <span class="feature-title">Mapeamento de Risco</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi laboriosam illo, doloremque
+                    placeat et.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-code fa-3x"></i>
+                <span class="feature-title">Placon</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi laboriosam illo, doloremque
+                    placeat et.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-layer-group fa-3x"></i>
+                <span class="feature-title">Capacitação de Voluntários</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi laboriosam illo, doloremque
+                    placeat et.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="product">
+        <div class="headline">aplicativo de campo</div>
+        <div id="product-container">
+            <img src="/static/img/iphone-x.png" alt="" class="iphone-x">
+            <div id="items">
+                <div class="item">
+                    <i class="fas fa-map-marked fa-2x color-primary"></i>
+                    <p>É um aplicativo GIS (Sistema de Informação Geográfica) móvel de código aberto!</p>
+                </div>
+                <div class="item">
+                    <i class="fas fa-users fa-2x color-primary"></i>
+                    <p>permite aos usuários coletar e gerenciar dados geoespaciais em campo!</p>
+                </div>
+                <div class="item">
+                    <i class="fas fa-glass-cheers fa-2x color-primary"></i>
+                    <p>O QField é uma ferramenta poderosa para coleta de dados de campo!</p>
+                </div>
+                <div class="item">
+                    <i class="fas fa-book-open fa-2x"></i>
+                    <p>É fácil de usar e possui uma variedade de recursos que o tornam ideal para trabalhos de campo, com smartphones e tablets!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="testimonials">
+        <div class="headline">Condições Climáticas</div>
+        <div id="testimonials-container">
+            <div class="testimonial">
+                <img src="/static/img/person-1.jpeg" alt="" class="testimonial-image">
+                <p>O monitoramento dos incêndios no Pantanal é feito por diversos órgãos, incluindo o Instituto Nacional de Pesquisas Espaciais (Inpe), o Laboratório De Aplicações De Satélites Ambientais - UFRJ (LASA) e o Centro Nacional de Monitoramento e Alerta de Desastres Naturais (Cemaden).</p>
+            </div>
+            <div class="testimonial">
+                <img src="/static/img/person-2.jpeg" alt="" class="testimonial-image">
+                <p>O Instituto Nacional de Meteorologia (Inmet) emitiu um alerta de onda de calor para o Mato Grosso, que deve durar até a próxima quarta-feira (15). As temperaturas máximas podem chegar a 45°C em algumas regiões do estado, com possíveis recordes de temperatura máxima e baixa umidade relativa do ar em 2023.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <section id="gallery">
+        <div class="headline">Galeria</div>
+        <div id="gallery-container">
+            <img src="/static/img/image-1.jpeg" alt="" class="gallery-image">
+            <img src="/static/img/image-2.jpeg" alt="" class="gallery-image">
+            <img src="/static/img/image-3.jpeg" alt="" class="gallery-image">
+            <img src="/static/img/image-4.jpeg" alt="" class="gallery-image">
+            <img src="/static/img/image-5.jpeg" alt="" class="gallery-image">
+            <img src="/static/img/image-6.jpeg" alt="" class="gallery-image">
+        </div>
+    </section>
+
+    <footer id="footer">
+        <p>Copyright 2023 - Todos os direitos reservados.</p>
+        <p>Feito por Defesa Civil MT.</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="static/js/main.js"></script>
+
+    <script>
+        function dispararAlerta() {
+            fetch('/disparar_alerta_web', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+
+        document.getElementById("dispararAlertaButton").addEventListener("click", function () {
+            dispararAlerta();
+        });
+    </script>
+</body>
+
+</html>

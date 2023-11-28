@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_234c42283a43a181da57e1df8f5c5f44 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 50px; left: 50px; width: 200px; height: 80px; 
+                border:2px solid grey; z-index:9999; font-size:14px;
+                background-color: white; opacity: 0.85;">
+    &nbsp; Legenda <br>
+    &nbsp; <i class="fa fa-circle fa-1x" style="color:red"></i> Temperatura > 38°C <br>
+    &nbsp; <i class="fa fa-circle fa-1x" style="color:orange"></i> Chuva <br>
+    &nbsp; <i class="fa fa-circle fa-1x" style="color:blue"></i> Outras condições <br>
+    </div>
+    
+            <div class="folium-map" id="map_234c42283a43a181da57e1df8f5c5f44" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_234c42283a43a181da57e1df8f5c5f44 = L.map(
+                "map_234c42283a43a181da57e1df8f5c5f44",
+                {
+                    center: [-13.53195, -54.791014],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_face2067126ce66264036f61539a7afe = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_234c42283a43a181da57e1df8f5c5f44);
+        
+    
+            var feature_group_b834366913e52d3ab308fa969f48828e = L.featureGroup(
+                {}
+            ).addTo(map_234c42283a43a181da57e1df8f5c5f44);
+        
+    
+            var marker_6df528da7086dd436202bc2f38f6fbed = L.marker(
+                [-14.0504, -52.1606],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_4b60d094827afdefd227926caace2868 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6df528da7086dd436202bc2f38f6fbed.setIcon(icon_4b60d094827afdefd227926caace2868);
+        
+    
+        var popup_f37cf337f4dca4ec6374078e05557df2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b6c0055dda8da21a5562c0ba0c223368 = $(`<div id="html_b6c0055dda8da21a5562c0ba0c223368" style="width: 100.0%; height: 100.0%;">Cidade: Água Boa&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.18°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_f37cf337f4dca4ec6374078e05557df2.setContent(html_b6c0055dda8da21a5562c0ba0c223368);
+            
+        
+
+        marker_6df528da7086dd436202bc2f38f6fbed.bindPopup(popup_f37cf337f4dca4ec6374078e05557df2)
+        ;
+
+        
+    
+    
+            var marker_71adf631419c91815b0afc3cd969545c = L.marker(
+                [-14.4473, -56.8531],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_68d3b1397539b36b02ca7626e0f42b7d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_71adf631419c91815b0afc3cd969545c.setIcon(icon_68d3b1397539b36b02ca7626e0f42b7d);
+        
+    
+        var popup_ec38475235318cbc23b5e7c4ae980472 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c5c9eeffd4883147901921ea4cfb1eb = $(`<div id="html_3c5c9eeffd4883147901921ea4cfb1eb" style="width: 100.0%; height: 100.0%;">Cidade: Arenápolis&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.43°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_ec38475235318cbc23b5e7c4ae980472.setContent(html_3c5c9eeffd4883147901921ea4cfb1eb);
+            
+        
+
+        marker_71adf631419c91815b0afc3cd969545c.bindPopup(popup_ec38475235318cbc23b5e7c4ae980472)
+        ;
+
+        
+    
+    
+            var marker_48f8c933c32ce7b6404e9f49105226cf = L.marker(
+                [-16.206, -55.9671],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_9488398a088bdb2189db906ea4982a45 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_48f8c933c32ce7b6404e9f49105226cf.setIcon(icon_9488398a088bdb2189db906ea4982a45);
+        
+    
+        var popup_622ea09ce29318a9a3850d879670277b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c8450109b8b57fd5b81ca8ae62663b50 = $(`<div id="html_c8450109b8b57fd5b81ca8ae62663b50" style="width: 100.0%; height: 100.0%;">Cidade: Barão de Melgaço&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 38.27°C&lt;br&gt;Umidade: 32%</div>`)[0];
+                popup_622ea09ce29318a9a3850d879670277b.setContent(html_c8450109b8b57fd5b81ca8ae62663b50);
+            
+        
+
+        marker_48f8c933c32ce7b6404e9f49105226cf.bindPopup(popup_622ea09ce29318a9a3850d879670277b)
+        ;
+
+        
+    
+    
+            var marker_790eb601b63beaf457aaacd16bc05539 = L.marker(
+                [-15.8833, -52.2569],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_7a010b77428c25fed2c419242c5c042a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_790eb601b63beaf457aaacd16bc05539.setIcon(icon_7a010b77428c25fed2c419242c5c042a);
+        
+    
+        var popup_d505af2c12c7fa7d5a7375c921a6e8f5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eea537bf6414cce12404a563bc1ff673 = $(`<div id="html_eea537bf6414cce12404a563bc1ff673" style="width: 100.0%; height: 100.0%;">Cidade: Barra do Garças&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.43°C&lt;br&gt;Umidade: 39%</div>`)[0];
+                popup_d505af2c12c7fa7d5a7375c921a6e8f5.setContent(html_eea537bf6414cce12404a563bc1ff673);
+            
+        
+
+        marker_790eb601b63beaf457aaacd16bc05539.bindPopup(popup_d505af2c12c7fa7d5a7375c921a6e8f5)
+        ;
+
+        
+    
+    
+            var marker_05dc3399e46933285d5ab8973d78285a = L.marker(
+                [-16.0735, -57.6819],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_9c06996332c9cc0ce4aa4e9bca7be364 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_05dc3399e46933285d5ab8973d78285a.setIcon(icon_9c06996332c9cc0ce4aa4e9bca7be364);
+        
+    
+        var popup_8bfee4319b3cc4a49acf69815ef6544c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c1362f916373beca6b5fe25a898a8b4d = $(`<div id="html_c1362f916373beca6b5fe25a898a8b4d" style="width: 100.0%; height: 100.0%;">Cidade: Cáceres&lt;br&gt;Descrição: chuva fraca&lt;br&gt;Temperatura: 36.65°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_8bfee4319b3cc4a49acf69815ef6544c.setContent(html_c1362f916373beca6b5fe25a898a8b4d);
+            
+        
+
+        marker_05dc3399e46933285d5ab8973d78285a.bindPopup(popup_8bfee4319b3cc4a49acf69815ef6544c)
+        ;
+
+        
+    
+    
+            var marker_ceba4a36603289220df71d0fa2a780d0 = L.marker(
+                [-13.6681, -57.8903],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_01f90b9c56a9673e8c8ef11697fac2e0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ceba4a36603289220df71d0fa2a780d0.setIcon(icon_01f90b9c56a9673e8c8ef11697fac2e0);
+        
+    
+        var popup_da8ca4a8e4ec6496aea7629edcc9daa6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b3e5a5d1083f504a07d61f1ef361bc45 = $(`<div id="html_b3e5a5d1083f504a07d61f1ef361bc45" style="width: 100.0%; height: 100.0%;">Cidade: Campo Novo do Parecis&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 30.52°C&lt;br&gt;Umidade: 49%</div>`)[0];
+                popup_da8ca4a8e4ec6496aea7629edcc9daa6.setContent(html_b3e5a5d1083f504a07d61f1ef361bc45);
+            
+        
+
+        marker_ceba4a36603289220df71d0fa2a780d0.bindPopup(popup_da8ca4a8e4ec6496aea7629edcc9daa6)
+        ;
+
+        
+    
+    
+            var marker_7a5431390f8441fe646dddf15e22d107 = L.marker(
+                [-15.4649, -55.7497],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_51e9df666e7c797694dc2ec0649a7788 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7a5431390f8441fe646dddf15e22d107.setIcon(icon_51e9df666e7c797694dc2ec0649a7788);
+        
+    
+        var popup_9543e90878be4523ded210c28af09bdb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_281c2b5502f0414c1de453c2e9124d7e = $(`<div id="html_281c2b5502f0414c1de453c2e9124d7e" style="width: 100.0%; height: 100.0%;">Cidade: Chapada dos Guimarães&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 28.79°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_9543e90878be4523ded210c28af09bdb.setContent(html_281c2b5502f0414c1de453c2e9124d7e);
+            
+        
+
+        marker_7a5431390f8441fe646dddf15e22d107.bindPopup(popup_9543e90878be4523ded210c28af09bdb)
+        ;
+
+        
+    
+    
+            var marker_4dc0d9c2d46a702f3a50ca2f68e3c6e5 = L.marker(
+                [-13.6618, -59.7847],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_3f92b4d882a07cbff070da349b216d08 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4dc0d9c2d46a702f3a50ca2f68e3c6e5.setIcon(icon_3f92b4d882a07cbff070da349b216d08);
+        
+    
+        var popup_480428c7c5aa1c4eef8c06789db06146 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3b4c1b15e35ca78d16f998e513d62c5a = $(`<div id="html_3b4c1b15e35ca78d16f998e513d62c5a" style="width: 100.0%; height: 100.0%;">Cidade: Comodoro&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 26.04°C&lt;br&gt;Umidade: 82%</div>`)[0];
+                popup_480428c7c5aa1c4eef8c06789db06146.setContent(html_3b4c1b15e35ca78d16f998e513d62c5a);
+            
+        
+
+        marker_4dc0d9c2d46a702f3a50ca2f68e3c6e5.bindPopup(popup_480428c7c5aa1c4eef8c06789db06146)
+        ;
+
+        
+    
+    
+            var marker_4895f522b31243a467646b50957e768a = L.marker(
+                [-10.6346, -51.5696],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_e963db65675f968f29e73c89f25e7d54 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4895f522b31243a467646b50957e768a.setIcon(icon_e963db65675f968f29e73c89f25e7d54);
+        
+    
+        var popup_591aff66303739ced3c957141d1f1ef5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_93ae633f8ba040dd00d359e49caa2bd5 = $(`<div id="html_93ae633f8ba040dd00d359e49caa2bd5" style="width: 100.0%; height: 100.0%;">Cidade: Confresa&lt;br&gt;Descrição: nuvens dispersas&lt;br&gt;Temperatura: 35.88°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_591aff66303739ced3c957141d1f1ef5.setContent(html_93ae633f8ba040dd00d359e49caa2bd5);
+            
+        
+
+        marker_4895f522b31243a467646b50957e768a.bindPopup(popup_591aff66303739ced3c957141d1f1ef5)
+        ;
+
+        
+    
+    
+            var marker_38db1ea6030371fc60a3c0dae190084a = L.marker(
+                [-15.5989, -56.0949],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_984c77c136030fa549e4c435db441444 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_38db1ea6030371fc60a3c0dae190084a.setIcon(icon_984c77c136030fa549e4c435db441444);
+        
+    
+        var popup_3ea1eee0bde63e5faf54441a576ec9dd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d1120de26e8796fa8e09d466c8aad78d = $(`<div id="html_d1120de26e8796fa8e09d466c8aad78d" style="width: 100.0%; height: 100.0%;">Cidade: Cuiabá&lt;br&gt;Descrição: nuvens dispersas&lt;br&gt;Temperatura: 33.04°C&lt;br&gt;Umidade: 55%</div>`)[0];
+                popup_3ea1eee0bde63e5faf54441a576ec9dd.setContent(html_d1120de26e8796fa8e09d466c8aad78d);
+            
+        
+
+        marker_38db1ea6030371fc60a3c0dae190084a.bindPopup(popup_3ea1eee0bde63e5faf54441a576ec9dd)
+        ;
+
+        
+    
+    
+            var marker_91fccc1c74e3cfaef0fafb978ad23e4b = L.marker(
+                [-12.384, -54.9223],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_d926a0d603a51202ba5884ff45d3f18a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_91fccc1c74e3cfaef0fafb978ad23e4b.setIcon(icon_d926a0d603a51202ba5884ff45d3f18a);
+        
+    
+        var popup_92b9e163302d04884b54ffd6870854df = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aae0c06927da3134f9aa4e72d514b6a8 = $(`<div id="html_aae0c06927da3134f9aa4e72d514b6a8" style="width: 100.0%; height: 100.0%;">Cidade: Feliz Natal&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.87°C&lt;br&gt;Umidade: 33%</div>`)[0];
+                popup_92b9e163302d04884b54ffd6870854df.setContent(html_aae0c06927da3134f9aa4e72d514b6a8);
+            
+        
+
+        marker_91fccc1c74e3cfaef0fafb978ad23e4b.bindPopup(popup_92b9e163302d04884b54ffd6870854df)
+        ;
+
+        
+    
+    
+            var marker_80157654ca1b3cf2db00519b63f2032c = L.marker(
+                [-10.558, -55.7276],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_a44eeb6b94dc025955cb75121a55ec64 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_80157654ca1b3cf2db00519b63f2032c.setIcon(icon_a44eeb6b94dc025955cb75121a55ec64);
+        
+    
+        var popup_64915426a519d8ed0d935c6d09f666c5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_54b5f0492547eff09a8ba4e947b3f79e = $(`<div id="html_54b5f0492547eff09a8ba4e947b3f79e" style="width: 100.0%; height: 100.0%;">Cidade: Nova Canaã do Norte&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.01°C&lt;br&gt;Umidade: 39%</div>`)[0];
+                popup_64915426a519d8ed0d935c6d09f666c5.setContent(html_54b5f0492547eff09a8ba4e947b3f79e);
+            
+        
+
+        marker_80157654ca1b3cf2db00519b63f2032c.bindPopup(popup_64915426a519d8ed0d935c6d09f666c5)
+        ;
+
+        
+    
+    
+            var marker_1e16491f4134648786a4149d7ed4a5b3 = L.marker(
+                [-14.7958, -57.288],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_b0342061e648cd87a6f2eabdd517fc97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1e16491f4134648786a4149d7ed4a5b3.setIcon(icon_b0342061e648cd87a6f2eabdd517fc97);
+        
+    
+        var popup_c3f0456efa52fdf3a6a73ff3390aff20 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_715a31d9fd940d0c8368e6e7e4735f21 = $(`<div id="html_715a31d9fd940d0c8368e6e7e4735f21" style="width: 100.0%; height: 100.0%;">Cidade: Nova Olímpia&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 37.03°C&lt;br&gt;Umidade: 32%</div>`)[0];
+                popup_c3f0456efa52fdf3a6a73ff3390aff20.setContent(html_715a31d9fd940d0c8368e6e7e4735f21);
+            
+        
+
+        marker_1e16491f4134648786a4149d7ed4a5b3.bindPopup(popup_c3f0456efa52fdf3a6a73ff3390aff20)
+        ;
+
+        
+    
+    
+            var marker_f9f2bb4dd08438d01a837d4dbab8e959 = L.marker(
+                [-14.4265, -54.051],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_a652f3995aaf9a51224dd8184f9a5b23 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f9f2bb4dd08438d01a837d4dbab8e959.setIcon(icon_a652f3995aaf9a51224dd8184f9a5b23);
+        
+    
+        var popup_f4c7dc57a4394377d4dd8e5b131d7541 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b667aac36c6f762215b47a81538cee81 = $(`<div id="html_b667aac36c6f762215b47a81538cee81" style="width: 100.0%; height: 100.0%;">Cidade: Paranatinga&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.02°C&lt;br&gt;Umidade: 37%</div>`)[0];
+                popup_f4c7dc57a4394377d4dd8e5b131d7541.setContent(html_b667aac36c6f762215b47a81538cee81);
+            
+        
+
+        marker_f9f2bb4dd08438d01a837d4dbab8e959.bindPopup(popup_f4c7dc57a4394377d4dd8e5b131d7541)
+        ;
+
+        
+    
+    
+            var marker_2da800f650582b1faa3032e79416c21e = L.marker(
+                [-10.2269, -54.9794],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_f3ad7336de1482f92fb301816321f5e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2da800f650582b1faa3032e79416c21e.setIcon(icon_f3ad7336de1482f92fb301816321f5e7);
+        
+    
+        var popup_4213f61834b3be58727268b781e76781 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3339fa9a0199c52b1235d70c6470a45a = $(`<div id="html_3339fa9a0199c52b1235d70c6470a45a" style="width: 100.0%; height: 100.0%;">Cidade: Peixoto de Azevedo&lt;br&gt;Descrição: chuva fraca&lt;br&gt;Temperatura: 33.50°C&lt;br&gt;Umidade: 47%</div>`)[0];
+                popup_4213f61834b3be58727268b781e76781.setContent(html_3339fa9a0199c52b1235d70c6470a45a);
+            
+        
+
+        marker_2da800f650582b1faa3032e79416c21e.bindPopup(popup_4213f61834b3be58727268b781e76781)
+        ;
+
+        
+    
+    
+            var marker_bca5c7191111e217d2cabf7929444915 = L.marker(
+                [-15.229, -59.3381],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_f4487457e2557ca39300793a47a0aa8c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_bca5c7191111e217d2cabf7929444915.setIcon(icon_f4487457e2557ca39300793a47a0aa8c);
+        
+    
+        var popup_a646f7283f987fa81d05c25e8c27b42d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2f57cad9956a33d809f1325a3e0099e5 = $(`<div id="html_2f57cad9956a33d809f1325a3e0099e5" style="width: 100.0%; height: 100.0%;">Cidade: Pontes de Lacerda&lt;br&gt;Descrição: chuva moderada&lt;br&gt;Temperatura: 30.42°C&lt;br&gt;Umidade: 59%</div>`)[0];
+                popup_a646f7283f987fa81d05c25e8c27b42d.setContent(html_2f57cad9956a33d809f1325a3e0099e5);
+            
+        
+
+        marker_bca5c7191111e217d2cabf7929444915.bindPopup(popup_a646f7283f987fa81d05c25e8c27b42d)
+        ;
+
+        
+    
+    
+            var marker_55b6b55aeeb50133bdd08df9776e306f = L.marker(
+                [-15.8295, -54.4011],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_877e1b13a3560063517b43013de8d813 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_55b6b55aeeb50133bdd08df9776e306f.setIcon(icon_877e1b13a3560063517b43013de8d813);
+        
+    
+        var popup_3d91f49c82f998b9b9272166544eb2c4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0df1f59555163fe89b72d3fbd34d8868 = $(`<div id="html_0df1f59555163fe89b72d3fbd34d8868" style="width: 100.0%; height: 100.0%;">Cidade: Poxoréu&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 36.38°C&lt;br&gt;Umidade: 32%</div>`)[0];
+                popup_3d91f49c82f998b9b9272166544eb2c4.setContent(html_0df1f59555163fe89b72d3fbd34d8868);
+            
+        
+
+        marker_55b6b55aeeb50133bdd08df9776e306f.bindPopup(popup_3d91f49c82f998b9b9272166544eb2c4)
+        ;
+
+        
+    
+    
+            var marker_b076727517832aec7c508bd36c216754 = L.marker(
+                [-16.4676, -54.6372],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_25662435ee7472f8e699fb36422ffb7c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b076727517832aec7c508bd36c216754.setIcon(icon_25662435ee7472f8e699fb36422ffb7c);
+        
+    
+        var popup_72ab5b0d7efaeae28e33a90fabda0ce1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_83d0c1c4e00ecf3abd3013ac12dbd473 = $(`<div id="html_83d0c1c4e00ecf3abd3013ac12dbd473" style="width: 100.0%; height: 100.0%;">Cidade: Rondonópolis&lt;br&gt;Descrição: nuvens quebradas&lt;br&gt;Temperatura: 37.90°C&lt;br&gt;Umidade: 31%</div>`)[0];
+                popup_72ab5b0d7efaeae28e33a90fabda0ce1.setContent(html_83d0c1c4e00ecf3abd3013ac12dbd473);
+            
+        
+
+        marker_b076727517832aec7c508bd36c216754.bindPopup(popup_72ab5b0d7efaeae28e33a90fabda0ce1)
+        ;
+
+        
+    
+    
+            var marker_4dce3e35d74025ac9e7e3db171cc6d1d = L.marker(
+                [-10.4704, -50.5141],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_df6de6109ec72698db7ab9389fd6ca62 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4dce3e35d74025ac9e7e3db171cc6d1d.setIcon(icon_df6de6109ec72698db7ab9389fd6ca62);
+        
+    
+        var popup_4e4691379624e64229cc75537be0c9bf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_406144fdc6d2d0e5f19019dbe5fa7d9b = $(`<div id="html_406144fdc6d2d0e5f19019dbe5fa7d9b" style="width: 100.0%; height: 100.0%;">Cidade: Santa Terezinha&lt;br&gt;Descrição: céu limpo&lt;br&gt;Temperatura: 36.94°C&lt;br&gt;Umidade: 32%</div>`)[0];
+                popup_4e4691379624e64229cc75537be0c9bf.setContent(html_406144fdc6d2d0e5f19019dbe5fa7d9b);
+            
+        
+
+        marker_4dce3e35d74025ac9e7e3db171cc6d1d.bindPopup(popup_4e4691379624e64229cc75537be0c9bf)
+        ;
+
+        
+    
+    
+            var marker_4cabc1d10ff2e2504815fa51190c1eb3 = L.marker(
+                [-15.8653, -56.0789],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_33bfde12e10c672780d7893f7cda4eaf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4cabc1d10ff2e2504815fa51190c1eb3.setIcon(icon_33bfde12e10c672780d7893f7cda4eaf);
+        
+    
+        var popup_6a7b734d09df3e6956c23dce65a921f4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e9373e7d78424cb16757092b5fe98c6c = $(`<div id="html_e9373e7d78424cb16757092b5fe98c6c" style="width: 100.0%; height: 100.0%;">Cidade: Santo Antônio do Leverger&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 33.21°C&lt;br&gt;Umidade: 34%</div>`)[0];
+                popup_6a7b734d09df3e6956c23dce65a921f4.setContent(html_e9373e7d78424cb16757092b5fe98c6c);
+            
+        
+
+        marker_4cabc1d10ff2e2504815fa51190c1eb3.bindPopup(popup_6a7b734d09df3e6956c23dce65a921f4)
+        ;
+
+        
+    
+    
+            var marker_8087d885194a8519e3a143bae2976cc6 = L.marker(
+                [-13.4606, -56.7216],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_694ea9631cecc95f1513e36d01007a1a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8087d885194a8519e3a143bae2976cc6.setIcon(icon_694ea9631cecc95f1513e36d01007a1a);
+        
+    
+        var popup_326281b84c182005f21d100ab74de816 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e75875ccba6daf1cac25256ae0694048 = $(`<div id="html_e75875ccba6daf1cac25256ae0694048" style="width: 100.0%; height: 100.0%;">Cidade: São José do Rio Claro&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 33.65°C&lt;br&gt;Umidade: 41%</div>`)[0];
+                popup_326281b84c182005f21d100ab74de816.setContent(html_e75875ccba6daf1cac25256ae0694048);
+            
+        
+
+        marker_8087d885194a8519e3a143bae2976cc6.bindPopup(popup_326281b84c182005f21d100ab74de816)
+        ;
+
+        
+    
+    
+            var marker_1fba35b529bb02801485e9628b666dc1 = L.marker(
+                [-10.0192, -51.1189],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_f1799bc4074af55b8352c5e12b0aeccf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1fba35b529bb02801485e9628b666dc1.setIcon(icon_f1799bc4074af55b8352c5e12b0aeccf);
+        
+    
+        var popup_85c4c04304ae2cf858b0446af15022ab = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_79c2b7468328c009e089e95dfbdc795d = $(`<div id="html_79c2b7468328c009e089e95dfbdc795d" style="width: 100.0%; height: 100.0%;">Cidade: Vila Rica&lt;br&gt;Descrição: nuvens dispersas&lt;br&gt;Temperatura: 35.18°C&lt;br&gt;Umidade: 39%</div>`)[0];
+                popup_85c4c04304ae2cf858b0446af15022ab.setContent(html_79c2b7468328c009e089e95dfbdc795d);
+            
+        
+
+        marker_1fba35b529bb02801485e9628b666dc1.bindPopup(popup_85c4c04304ae2cf858b0446af15022ab)
+        ;
+
+        
+    
+    
+            var marker_21af40fd174a2c2154b64af686861f10 = L.marker(
+                [-14.6229, -57.5],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_569940a3cb43580a81eb2d8551de89ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_21af40fd174a2c2154b64af686861f10.setIcon(icon_569940a3cb43580a81eb2d8551de89ad);
+        
+    
+        var popup_df40aa6f220f33c9d99bbf3a3c9bcd41 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5a2f55e63077fc8be6be7370e2c59076 = $(`<div id="html_5a2f55e63077fc8be6be7370e2c59076" style="width: 100.0%; height: 100.0%;">Cidade: Tangará da Serra&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.23°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_df40aa6f220f33c9d99bbf3a3c9bcd41.setContent(html_5a2f55e63077fc8be6be7370e2c59076);
+            
+        
+
+        marker_21af40fd174a2c2154b64af686861f10.bindPopup(popup_df40aa6f220f33c9d99bbf3a3c9bcd41)
+        ;
+
+        
+    
+    
+            var marker_4390c2768bef62584d756b203d5196ac = L.marker(
+                [-12.5422, -55.7219],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_93bc0a62e5049b056d9d31807ad8e75d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4390c2768bef62584d756b203d5196ac.setIcon(icon_93bc0a62e5049b056d9d31807ad8e75d);
+        
+    
+        var popup_69f2374cbea44db7274d7eb8345e41ac = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8897582454026d3ea283ec891d96f9aa = $(`<div id="html_8897582454026d3ea283ec891d96f9aa" style="width: 100.0%; height: 100.0%;">Cidade: Sorriso&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.71°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_69f2374cbea44db7274d7eb8345e41ac.setContent(html_8897582454026d3ea283ec891d96f9aa);
+            
+        
+
+        marker_4390c2768bef62584d756b203d5196ac.bindPopup(popup_69f2374cbea44db7274d7eb8345e41ac)
+        ;
+
+        
+    
+    
+            var marker_b1580c135f96e63558d3619b8bb20aa4 = L.marker(
+                [-9.97063, -54.9049],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_6359dd50579a8784af2e7c52099a1fd9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b1580c135f96e63558d3619b8bb20aa4.setIcon(icon_6359dd50579a8784af2e7c52099a1fd9);
+        
+    
+        var popup_7f386c57900393fa2c1b5acc2fa21ecc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b54bebbab19b4256495444867e5a76be = $(`<div id="html_b54bebbab19b4256495444867e5a76be" style="width: 100.0%; height: 100.0%;">Cidade: Guarantã do Norte&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.56°C&lt;br&gt;Umidade: 37%</div>`)[0];
+                popup_7f386c57900393fa2c1b5acc2fa21ecc.setContent(html_b54bebbab19b4256495444867e5a76be);
+            
+        
+
+        marker_b1580c135f96e63558d3619b8bb20aa4.bindPopup(popup_7f386c57900393fa2c1b5acc2fa21ecc)
+        ;
+
+        
+    
+    
+            var marker_5f10b0e07937fca0f2334b2ffc6741c2 = L.marker(
+                [-17.3164, -53.2199],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_0e5fcc27f58597ac1a9fb8a87fc8b4d6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5f10b0e07937fca0f2334b2ffc6741c2.setIcon(icon_0e5fcc27f58597ac1a9fb8a87fc8b4d6);
+        
+    
+        var popup_522957d87e21742d61ef140fcf13a2cf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6da4f54311a1bae691d7199e10f96fcd = $(`<div id="html_6da4f54311a1bae691d7199e10f96fcd" style="width: 100.0%; height: 100.0%;">Cidade: Alto Araguaia&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.04°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_522957d87e21742d61ef140fcf13a2cf.setContent(html_6da4f54311a1bae691d7199e10f96fcd);
+            
+        
+
+        marker_5f10b0e07937fca0f2334b2ffc6741c2.bindPopup(popup_522957d87e21742d61ef140fcf13a2cf)
+        ;
+
+        
+    
+    
+            var marker_c18c6ffc0e247b787fe4f816ce02e6d3 = L.marker(
+                [-9.54007, -57.4596],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_2de39f2cb56dd278ff59697d488da9dd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c18c6ffc0e247b787fe4f816ce02e6d3.setIcon(icon_2de39f2cb56dd278ff59697d488da9dd);
+        
+    
+        var popup_0f5d0e3cef454a5e259300718fb0e8f1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1e76f79b3af84f4460fd7e889ac400c7 = $(`<div id="html_1e76f79b3af84f4460fd7e889ac400c7" style="width: 100.0%; height: 100.0%;">Cidade: Apiacás&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.24°C&lt;br&gt;Umidade: 40%</div>`)[0];
+                popup_0f5d0e3cef454a5e259300718fb0e8f1.setContent(html_1e76f79b3af84f4460fd7e889ac400c7);
+            
+        
+
+        marker_c18c6ffc0e247b787fe4f816ce02e6d3.bindPopup(popup_0f5d0e3cef454a5e259300718fb0e8f1)
+        ;
+
+        
+    
+    
+            var marker_153d7199321d1081c60feb24a9a4792f = L.marker(
+                [-13.5403, -58.2441],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_5495b7836d0bcdf52506063f4ae368e6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_153d7199321d1081c60feb24a9a4792f.setIcon(icon_5495b7836d0bcdf52506063f4ae368e6);
+        
+    
+        var popup_92689a683b4c731576e4e205c1b9821f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_79b7bcf2803c5b95bd1c547803cf2e24 = $(`<div id="html_79b7bcf2803c5b95bd1c547803cf2e24" style="width: 100.0%; height: 100.0%;">Cidade: Sapezal&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 30.81°C&lt;br&gt;Umidade: 50%</div>`)[0];
+                popup_92689a683b4c731576e4e205c1b9821f.setContent(html_79b7bcf2803c5b95bd1c547803cf2e24);
+            
+        
+
+        marker_153d7199321d1081c60feb24a9a4792f.bindPopup(popup_92689a683b4c731576e4e205c1b9821f)
+        ;
+
+        
+    
+    
+            var marker_a1452327b254fb931784a52c9293c074 = L.marker(
+                [-15.5408, -55.1606],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_476df92222db4be0159eeabcf8b9e44a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a1452327b254fb931784a52c9293c074.setIcon(icon_476df92222db4be0159eeabcf8b9e44a);
+        
+    
+        var popup_b9499039571b6530fbd61620e14a1531 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_82306eace15621161b537d31dc61670c = $(`<div id="html_82306eace15621161b537d31dc61670c" style="width: 100.0%; height: 100.0%;">Cidade: Campo Verde&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 31.17°C&lt;br&gt;Umidade: 42%</div>`)[0];
+                popup_b9499039571b6530fbd61620e14a1531.setContent(html_82306eace15621161b537d31dc61670c);
+            
+        
+
+        marker_a1452327b254fb931784a52c9293c074.bindPopup(popup_b9499039571b6530fbd61620e14a1531)
+        ;
+
+        
+    
+    
+            var marker_4bc31b18109f9bb713dd95c5750c4edb = L.marker(
+                [-11.2634, -57.5242],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_064a78bfddadf24c632548392cf4a827 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4bc31b18109f9bb713dd95c5750c4edb.setIcon(icon_064a78bfddadf24c632548392cf4a827);
+        
+    
+        var popup_d46d447e65d3afa90b9304f58cfdc967 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_763d9e632101e9999a210cf63f13b088 = $(`<div id="html_763d9e632101e9999a210cf63f13b088" style="width: 100.0%; height: 100.0%;">Cidade: Juara&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 31.99°C&lt;br&gt;Umidade: 50%</div>`)[0];
+                popup_d46d447e65d3afa90b9304f58cfdc967.setContent(html_763d9e632101e9999a210cf63f13b088);
+            
+        
+
+        marker_4bc31b18109f9bb713dd95c5750c4edb.bindPopup(popup_d46d447e65d3afa90b9304f58cfdc967)
+        ;
+
+        
+    
+    
+            var marker_15c27890ecadd2f4ab91bba7302b7f11 = L.marker(
+                [-12.6102, -52.1826],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_5976ce298dfa9f95402ff9446b148181 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_15c27890ecadd2f4ab91bba7302b7f11.setIcon(icon_5976ce298dfa9f95402ff9446b148181);
+        
+    
+        var popup_6df48b3bb6f2be5b6e0f9593ff771e09 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61bd3faaaac09691e7bfebe5a31e79c8 = $(`<div id="html_61bd3faaaac09691e7bfebe5a31e79c8" style="width: 100.0%; height: 100.0%;">Cidade: Querência&lt;br&gt;Descrição: chuva fraca&lt;br&gt;Temperatura: 34.76°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_6df48b3bb6f2be5b6e0f9593ff771e09.setContent(html_61bd3faaaac09691e7bfebe5a31e79c8);
+            
+        
+
+        marker_15c27890ecadd2f4ab91bba7302b7f11.bindPopup(popup_6df48b3bb6f2be5b6e0f9593ff771e09)
+        ;
+
+        
+    
+    
+            var marker_7c1d8d0f81dc793c4c27c60e520ee0f3 = L.marker(
+                [-11.8668, -55.5081],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_ad608805afa90734803a52a6ba7db883 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7c1d8d0f81dc793c4c27c60e520ee0f3.setIcon(icon_ad608805afa90734803a52a6ba7db883);
+        
+    
+        var popup_952901527c6c45fdda4f76a36dd2e3d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_061d65679c5d9de652168fad16d96afe = $(`<div id="html_061d65679c5d9de652168fad16d96afe" style="width: 100.0%; height: 100.0%;">Cidade: Sinop&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.07°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_952901527c6c45fdda4f76a36dd2e3d7.setContent(html_061d65679c5d9de652168fad16d96afe);
+            
+        
+
+        marker_7c1d8d0f81dc793c4c27c60e520ee0f3.bindPopup(popup_952901527c6c45fdda4f76a36dd2e3d7)
+        ;
+
+        
+    
+    
+            var marker_9508c37c3f037e2ba8c66dd141d8c2cb = L.marker(
+                [-9.85753, -58.4198],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_948b9cdc56556bc811c5d41e2fd4fd60 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9508c37c3f037e2ba8c66dd141d8c2cb.setIcon(icon_948b9cdc56556bc811c5d41e2fd4fd60);
+        
+    
+        var popup_9d14087925efaae9e46d70bb1348ce98 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f932451f408288355ef56a8870ee70a5 = $(`<div id="html_f932451f408288355ef56a8870ee70a5" style="width: 100.0%; height: 100.0%;">Cidade: Cotriguaçu&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 30.81°C&lt;br&gt;Umidade: 56%</div>`)[0];
+                popup_9d14087925efaae9e46d70bb1348ce98.setContent(html_f932451f408288355ef56a8870ee70a5);
+            
+        
+
+        marker_9508c37c3f037e2ba8c66dd141d8c2cb.bindPopup(popup_9d14087925efaae9e46d70bb1348ce98)
+        ;
+
+        
+    
+    
+            var marker_eefe3104eed4526618af3bd0664bc134 = L.marker(
+                [-11.3728, -58.7489],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_8ead3a452516c756f07d495a64891656 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_eefe3104eed4526618af3bd0664bc134.setIcon(icon_8ead3a452516c756f07d495a64891656);
+        
+    
+        var popup_eae624b74d21f89022045efbb7b3acc9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5aba5a8334df8113b07d8254c3f285ad = $(`<div id="html_5aba5a8334df8113b07d8254c3f285ad" style="width: 100.0%; height: 100.0%;">Cidade: Juína&lt;br&gt;Descrição: chuva fraca&lt;br&gt;Temperatura: 29.36°C&lt;br&gt;Umidade: 62%</div>`)[0];
+                popup_eae624b74d21f89022045efbb7b3acc9.setContent(html_5aba5a8334df8113b07d8254c3f285ad);
+            
+        
+
+        marker_eefe3104eed4526618af3bd0664bc134.bindPopup(popup_eae624b74d21f89022045efbb7b3acc9)
+        ;
+
+        
+    
+    
+            var marker_bee43d0f640e395760df1834a4310d68 = L.marker(
+                [-11.6144, -50.6704],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_95f0159677755731696b6f5653b1ae67 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bee43d0f640e395760df1834a4310d68.setIcon(icon_95f0159677755731696b6f5653b1ae67);
+        
+    
+        var popup_5a4aac3c398d3d51341db0e467344dd3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d4de699d2fd43939f48f067fa2c60ea1 = $(`<div id="html_d4de699d2fd43939f48f067fa2c60ea1" style="width: 100.0%; height: 100.0%;">Cidade: São Félix do Araguaia&lt;br&gt;Descrição: céu limpo&lt;br&gt;Temperatura: 36.66°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_5a4aac3c398d3d51341db0e467344dd3.setContent(html_d4de699d2fd43939f48f067fa2c60ea1);
+            
+        
+
+        marker_bee43d0f640e395760df1834a4310d68.bindPopup(popup_5a4aac3c398d3d51341db0e467344dd3)
+        ;
+
+        
+    
+    
+            var marker_4910d7f2a6224aa08626ed696dedaa78 = L.marker(
+                [-15.0067, -59.95],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_234f413788327f5322176ff6165ec0d5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_4910d7f2a6224aa08626ed696dedaa78.setIcon(icon_234f413788327f5322176ff6165ec0d5);
+        
+    
+        var popup_0352bc6d60a967d914939bf438883a90 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_224ec55326a43a8b1e63bbaaf233f344 = $(`<div id="html_224ec55326a43a8b1e63bbaaf233f344" style="width: 100.0%; height: 100.0%;">Cidade: Vila Bela da Santíssima Trindade&lt;br&gt;Descrição: chuva forte&lt;br&gt;Temperatura: 28.34°C&lt;br&gt;Umidade: 79%</div>`)[0];
+                popup_0352bc6d60a967d914939bf438883a90.setContent(html_224ec55326a43a8b1e63bbaaf233f344);
+            
+        
+
+        marker_4910d7f2a6224aa08626ed696dedaa78.bindPopup(popup_0352bc6d60a967d914939bf438883a90)
+        ;
+
+        
+    
+    
+            var marker_d3f24a18c660a7a9e783cf66bd339f83 = L.marker(
+                [-15.595, -54.299],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_b3d48e7a74deecc68016c5e2dcdcad8b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d3f24a18c660a7a9e783cf66bd339f83.setIcon(icon_b3d48e7a74deecc68016c5e2dcdcad8b);
+        
+    
+        var popup_affd3956a39dab4d33cc8fde9033b166 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_919c43215752c23a111d2424e03fcfb6 = $(`<div id="html_919c43215752c23a111d2424e03fcfb6" style="width: 100.0%; height: 100.0%;">Cidade: Primavera do Leste&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.44°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_affd3956a39dab4d33cc8fde9033b166.setContent(html_919c43215752c23a111d2424e03fcfb6);
+            
+        
+
+        marker_d3f24a18c660a7a9e783cf66bd339f83.bindPopup(popup_affd3956a39dab4d33cc8fde9033b166)
+        ;
+
+        
+    
+    
+            var marker_2496e1bf373b604ebc58bec9f5a29e21 = L.marker(
+                [-9.8697, -56.0862],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_4eb08b73bfb625a4b9934ad03ddf7dc6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2496e1bf373b604ebc58bec9f5a29e21.setIcon(icon_4eb08b73bfb625a4b9934ad03ddf7dc6);
+        
+    
+        var popup_13d89128ff270430ef5cc92b8caa473e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7cd975a49a041f08568770d4a4a7dc48 = $(`<div id="html_7cd975a49a041f08568770d4a4a7dc48" style="width: 100.0%; height: 100.0%;">Cidade: Alta Floresta&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 33.21°C&lt;br&gt;Umidade: 42%</div>`)[0];
+                popup_13d89128ff270430ef5cc92b8caa473e.setContent(html_7cd975a49a041f08568770d4a4a7dc48);
+            
+        
+
+        marker_2496e1bf373b604ebc58bec9f5a29e21.bindPopup(popup_13d89128ff270430ef5cc92b8caa473e)
+        ;
+
+        
+    
+    
+            var marker_41c65d4e63d13cbf87aa187e497f601d = L.marker(
+                [-9.94915, -55.8415],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_79bc810f7ba1490a90e924e7da3f4085 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_41c65d4e63d13cbf87aa187e497f601d.setIcon(icon_79bc810f7ba1490a90e924e7da3f4085);
+        
+    
+        var popup_d2dbb32fc0a12577a48ae894beb017f6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c3c0177f577f67f6731848535c44da8 = $(`<div id="html_3c3c0177f577f67f6731848535c44da8" style="width: 100.0%; height: 100.0%;">Cidade: Carlinda&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.18°C&lt;br&gt;Umidade: 40%</div>`)[0];
+                popup_d2dbb32fc0a12577a48ae894beb017f6.setContent(html_3c3c0177f577f67f6731848535c44da8);
+            
+        
+
+        marker_41c65d4e63d13cbf87aa187e497f601d.bindPopup(popup_d2dbb32fc0a12577a48ae894beb017f6)
+        ;
+
+        
+    
+    
+            var marker_010344b90a5fa67eee989876674b88ea = L.marker(
+                [-12.1472, -57.9833],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_ef7a6dd2071213754b410e7ceb8ba3ce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_010344b90a5fa67eee989876674b88ea.setIcon(icon_ef7a6dd2071213754b410e7ceb8ba3ce);
+        
+    
+        var popup_02d4312641a21fa41af173502f797b02 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c5a6b0a35641b3584d06a7f7a6afaf3c = $(`<div id="html_c5a6b0a35641b3584d06a7f7a6afaf3c" style="width: 100.0%; height: 100.0%;">Cidade: Brasnorte&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 31.45°C&lt;br&gt;Umidade: 52%</div>`)[0];
+                popup_02d4312641a21fa41af173502f797b02.setContent(html_c5a6b0a35641b3584d06a7f7a6afaf3c);
+            
+        
+
+        marker_010344b90a5fa67eee989876674b88ea.bindPopup(popup_02d4312641a21fa41af173502f797b02)
+        ;
+
+        
+    
+    
+            var marker_675e809433ff3eab3c8594fc0f83b8a0 = L.marker(
+                [-13.0136, -57.0907],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_f046abfa97af9e3f5bf796c37dd61897 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_675e809433ff3eab3c8594fc0f83b8a0.setIcon(icon_f046abfa97af9e3f5bf796c37dd61897);
+        
+    
+        var popup_e5b2c82594c717d87f23ab1e3170d43d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f57e256b0a818439193fccf48b837253 = $(`<div id="html_f57e256b0a818439193fccf48b837253" style="width: 100.0%; height: 100.0%;">Cidade: Nova Maringá&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.09°C&lt;br&gt;Umidade: 39%</div>`)[0];
+                popup_e5b2c82594c717d87f23ab1e3170d43d.setContent(html_f57e256b0a818439193fccf48b837253);
+            
+        
+
+        marker_675e809433ff3eab3c8594fc0f83b8a0.bindPopup(popup_e5b2c82594c717d87f23ab1e3170d43d)
+        ;
+
+        
+    
+    
+            var marker_2032684873c4cd70e6f8820670502677 = L.marker(
+                [-12.983, -55.2567],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_b130ad3bd2cd295a4910bcf20b822ce3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2032684873c4cd70e6f8820670502677.setIcon(icon_b130ad3bd2cd295a4910bcf20b822ce3);
+        
+    
+        var popup_9ecc52791f95ee6985643b7761d6bbe5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dfa84a5b6b8fd618bb9b2d4c3edc904b = $(`<div id="html_dfa84a5b6b8fd618bb9b2d4c3edc904b" style="width: 100.0%; height: 100.0%;">Cidade: Nova Ubiratã&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.71°C&lt;br&gt;Umidade: 32%</div>`)[0];
+                popup_9ecc52791f95ee6985643b7761d6bbe5.setContent(html_dfa84a5b6b8fd618bb9b2d4c3edc904b);
+            
+        
+
+        marker_2032684873c4cd70e6f8820670502677.bindPopup(popup_9ecc52791f95ee6985643b7761d6bbe5)
+        ;
+
+        
+    
+    
+            var marker_537a7a94d1f146efe31e4bd17e8a7759 = L.marker(
+                [-13.2427, -53.0809],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_6e6197919df314c8f03ec964a9af2f1c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_537a7a94d1f146efe31e4bd17e8a7759.setIcon(icon_6e6197919df314c8f03ec964a9af2f1c);
+        
+    
+        var popup_1f93f11a65b59d148c3116aebd93dfb0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bf6789d474f1c2748276a7ef0600d567 = $(`<div id="html_bf6789d474f1c2748276a7ef0600d567" style="width: 100.0%; height: 100.0%;">Cidade: Gaúcha do Norte&lt;br&gt;Descrição: chuva moderada&lt;br&gt;Temperatura: 34.67°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_1f93f11a65b59d148c3116aebd93dfb0.setContent(html_bf6789d474f1c2748276a7ef0600d567);
+            
+        
+
+        marker_537a7a94d1f146efe31e4bd17e8a7759.bindPopup(popup_1f93f11a65b59d148c3116aebd93dfb0)
+        ;
+
+        
+    
+    
+            var marker_eb6a95758db327cc036bdde8679cd571 = L.marker(
+                [-14.8058, -53.6155],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_c6e30e6c621bb45ba68961a7acf096f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_eb6a95758db327cc036bdde8679cd571.setIcon(icon_c6e30e6c621bb45ba68961a7acf096f5);
+        
+    
+        var popup_018d3d9c024844c1b23e344bd90803d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9f4378d2a892c6512d3cda4f41a9a199 = $(`<div id="html_9f4378d2a892c6512d3cda4f41a9a199" style="width: 100.0%; height: 100.0%;">Cidade: Santo Antônio do Leste&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 33.51°C&lt;br&gt;Umidade: 35%</div>`)[0];
+                popup_018d3d9c024844c1b23e344bd90803d1.setContent(html_9f4378d2a892c6512d3cda4f41a9a199);
+            
+        
+
+        marker_eb6a95758db327cc036bdde8679cd571.bindPopup(popup_018d3d9c024844c1b23e344bd90803d1)
+        ;
+
+        
+    
+    
+            var marker_32a285f4f81db78b8a2ff550e651c246 = L.marker(
+                [-16.3466, -53.7576],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_e48a7e4053a4b9ad084bc4872d4b33fd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_32a285f4f81db78b8a2ff550e651c246.setIcon(icon_e48a7e4053a4b9ad084bc4872d4b33fd);
+        
+    
+        var popup_90095b85d559f7eac040d72dec659e3b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dd0a8f803ad841578a78c481abb030e9 = $(`<div id="html_dd0a8f803ad841578a78c481abb030e9" style="width: 100.0%; height: 100.0%;">Cidade: Guiratinga&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 34.21°C&lt;br&gt;Umidade: 37%</div>`)[0];
+                popup_90095b85d559f7eac040d72dec659e3b.setContent(html_dd0a8f803ad841578a78c481abb030e9);
+            
+        
+
+        marker_32a285f4f81db78b8a2ff550e651c246.bindPopup(popup_90095b85d559f7eac040d72dec659e3b)
+        ;
+
+        
+    
+    
+            var marker_ca5217b3065108701117ae8e2abe8a2f = L.marker(
+                [-17.2147, -54.1425],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_b7a35c792ad5fa414a9c0fff60f94d0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ca5217b3065108701117ae8e2abe8a2f.setIcon(icon_b7a35c792ad5fa414a9c0fff60f94d0b);
+        
+    
+        var popup_ce83956489817c44dd616adcd28dd8fd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_942198051864f4cc15dfa724fca2497e = $(`<div id="html_942198051864f4cc15dfa724fca2497e" style="width: 100.0%; height: 100.0%;">Cidade: Itiquira&lt;br&gt;Descrição: nuvens quebradas&lt;br&gt;Temperatura: 34.31°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_ce83956489817c44dd616adcd28dd8fd.setContent(html_942198051864f4cc15dfa724fca2497e);
+            
+        
+
+        marker_ca5217b3065108701117ae8e2abe8a2f.bindPopup(popup_ce83956489817c44dd616adcd28dd8fd)
+        ;
+
+        
+    
+    
+            var marker_5a9a6cff49590a1412f91cbf7cc00a0a = L.marker(
+                [-17.835, -53.2792],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_27ae66e95556faa91dd7759eb83a6bab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5a9a6cff49590a1412f91cbf7cc00a0a.setIcon(icon_27ae66e95556faa91dd7759eb83a6bab);
+        
+    
+        var popup_078fbc93abde29a2f63c653c7b84c922 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1f6343a6ed976cde8c029c74b4405441 = $(`<div id="html_1f6343a6ed976cde8c029c74b4405441" style="width: 100.0%; height: 100.0%;">Cidade: Alto Taquari&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 30.62°C&lt;br&gt;Umidade: 45%</div>`)[0];
+                popup_078fbc93abde29a2f63c653c7b84c922.setContent(html_1f6343a6ed976cde8c029c74b4405441);
+            
+        
+
+        marker_5a9a6cff49590a1412f91cbf7cc00a0a.bindPopup(popup_078fbc93abde29a2f63c653c7b84c922)
+        ;
+
+        
+    
+    
+            var marker_7227d4ec22bc442c04ebdd5c26ec8256 = L.marker(
+                [-15.323, -57.2204],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_e7c78105f7f36e90595e50d565cbda9e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7227d4ec22bc442c04ebdd5c26ec8256.setIcon(icon_e7c78105f7f36e90595e50d565cbda9e);
+        
+    
+        var popup_4a655ba77fd90584c992513921243556 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ab01880f8e761001c733b060889723c2 = $(`<div id="html_ab01880f8e761001c733b060889723c2" style="width: 100.0%; height: 100.0%;">Cidade: Porto Estrela&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.66°C&lt;br&gt;Umidade: 38%</div>`)[0];
+                popup_4a655ba77fd90584c992513921243556.setContent(html_ab01880f8e761001c733b060889723c2);
+            
+        
+
+        marker_7227d4ec22bc442c04ebdd5c26ec8256.bindPopup(popup_4a655ba77fd90584c992513921243556)
+        ;
+
+        
+    
+    
+            var marker_e019503a09589aca88f05ae07dc96bde = L.marker(
+                [-15.1307, -58.1323],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_a4ae3ce88b5e1f1a3890346dd425c6fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_e019503a09589aca88f05ae07dc96bde.setIcon(icon_a4ae3ce88b5e1f1a3890346dd425c6fe);
+        
+    
+        var popup_0dbae249fe65ddf07f20d34d480382b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_536604823535f36d9d2eaa2b8af8d565 = $(`<div id="html_536604823535f36d9d2eaa2b8af8d565" style="width: 100.0%; height: 100.0%;">Cidade: Salto do Céu&lt;br&gt;Descrição: chuva fraca&lt;br&gt;Temperatura: 34.82°C&lt;br&gt;Umidade: 37%</div>`)[0];
+                popup_0dbae249fe65ddf07f20d34d480382b5.setContent(html_536604823535f36d9d2eaa2b8af8d565);
+            
+        
+
+        marker_e019503a09589aca88f05ae07dc96bde.bindPopup(popup_0dbae249fe65ddf07f20d34d480382b5)
+        ;
+
+        
+    
+    
+            var marker_2a7a337c2f6c6128cfe8e1e7e7ad9eca = L.marker(
+                [-10.7983, -52.7486],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_8aa17945a1a75f910dfc9ea10ce58173 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2a7a337c2f6c6128cfe8e1e7e7ad9eca.setIcon(icon_8aa17945a1a75f910dfc9ea10ce58173);
+        
+    
+        var popup_69c0509452aeffcec306c7a408140cd4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b6f0b7c3a6fee47d423bafe1478581c5 = $(`<div id="html_b6f0b7c3a6fee47d423bafe1478581c5" style="width: 100.0%; height: 100.0%;">Cidade: São José do Xingu&lt;br&gt;Descrição: céu pouco nublado&lt;br&gt;Temperatura: 36.31°C&lt;br&gt;Umidade: 32%</div>`)[0];
+                popup_69c0509452aeffcec306c7a408140cd4.setContent(html_b6f0b7c3a6fee47d423bafe1478581c5);
+            
+        
+
+        marker_2a7a337c2f6c6128cfe8e1e7e7ad9eca.bindPopup(popup_69c0509452aeffcec306c7a408140cd4)
+        ;
+
+        
+    
+    
+            var marker_2d91bee72441e36a0a1c99195deccac7 = L.marker(
+                [-12.0899, -51.7659],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_04cd78cee4dccea46211ac159f237bd9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2d91bee72441e36a0a1c99195deccac7.setIcon(icon_04cd78cee4dccea46211ac159f237bd9);
+        
+    
+        var popup_7e3971b89ae4b51d8b627969830350e1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c74d7d5714aceaca960c30d26448d20 = $(`<div id="html_3c74d7d5714aceaca960c30d26448d20" style="width: 100.0%; height: 100.0%;">Cidade: Serra Nova Dourada&lt;br&gt;Descrição: céu pouco nublado&lt;br&gt;Temperatura: 34.84°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_7e3971b89ae4b51d8b627969830350e1.setContent(html_3c74d7d5714aceaca960c30d26448d20);
+            
+        
+
+        marker_2d91bee72441e36a0a1c99195deccac7.bindPopup(popup_7e3971b89ae4b51d8b627969830350e1)
+        ;
+
+        
+    
+    
+            var marker_5825d3caa0df351fa3560915c80b165e = L.marker(
+                [-14.8406, -56.4307],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_9315becc01d33866b9473fe890e0fc5b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5825d3caa0df351fa3560915c80b165e.setIcon(icon_9315becc01d33866b9473fe890e0fc5b);
+        
+    
+        var popup_b7d4a0155d4d675d6179cc6abde0d2af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d9cb283edb66c1a1afe8f452abd5d03 = $(`<div id="html_3d9cb283edb66c1a1afe8f452abd5d03" style="width: 100.0%; height: 100.0%;">Cidade: Rosário Oeste&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 36.90°C&lt;br&gt;Umidade: 33%</div>`)[0];
+                popup_b7d4a0155d4d675d6179cc6abde0d2af.setContent(html_3d9cb283edb66c1a1afe8f452abd5d03);
+            
+        
+
+        marker_5825d3caa0df351fa3560915c80b165e.bindPopup(popup_b7d4a0155d4d675d6179cc6abde0d2af)
+        ;
+
+        
+    
+    
+            var marker_3b0f197edf6d553e4ffca80dc6144686 = L.marker(
+                [-13.5512, -52.2705],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_541068e3b5d504d1af8a60b7c654f047 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3b0f197edf6d553e4ffca80dc6144686.setIcon(icon_541068e3b5d504d1af8a60b7c654f047);
+        
+    
+        var popup_2d15dc47823a88f8e95f478b64886ba6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_134a1fd244acf7c6a57388bfd0867b8a = $(`<div id="html_134a1fd244acf7c6a57388bfd0867b8a" style="width: 100.0%; height: 100.0%;">Cidade: Canarana&lt;br&gt;Descrição: nuvens quebradas&lt;br&gt;Temperatura: 33.63°C&lt;br&gt;Umidade: 38%</div>`)[0];
+                popup_2d15dc47823a88f8e95f478b64886ba6.setContent(html_134a1fd244acf7c6a57388bfd0867b8a);
+            
+        
+
+        marker_3b0f197edf6d553e4ffca80dc6144686.bindPopup(popup_2d15dc47823a88f8e95f478b64886ba6)
+        ;
+
+        
+    
+    
+            var marker_7788373cd095c2c55d74cffa7529c976 = L.marker(
+                [-14.6774, -52.3506],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_4822bf2466bfb62d4c305583b02d3344 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_7788373cd095c2c55d74cffa7529c976.setIcon(icon_4822bf2466bfb62d4c305583b02d3344);
+        
+    
+        var popup_0e94d369991bfe23e6f4758c55e7cdfa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3b68c24273548248a6131788c0684ba3 = $(`<div id="html_3b68c24273548248a6131788c0684ba3" style="width: 100.0%; height: 100.0%;">Cidade: Nova Xavantina&lt;br&gt;Descrição: chuva moderada&lt;br&gt;Temperatura: 35.23°C&lt;br&gt;Umidade: 37%</div>`)[0];
+                popup_0e94d369991bfe23e6f4758c55e7cdfa.setContent(html_3b68c24273548248a6131788c0684ba3);
+            
+        
+
+        marker_7788373cd095c2c55d74cffa7529c976.bindPopup(popup_0e94d369991bfe23e6f4758c55e7cdfa)
+        ;
+
+        
+    
+    
+            var marker_3c4b8c83b7fba101c3d34db0d291431a = L.marker(
+                [-14.4032, -56.4379],
+                {}
+            ).addTo(feature_group_b834366913e52d3ab308fa969f48828e);
+        
+    
+            var icon_9bf8ddb971945ffbc6a026b852170313 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3c4b8c83b7fba101c3d34db0d291431a.setIcon(icon_9bf8ddb971945ffbc6a026b852170313);
+        
+    
+        var popup_dbc740387035800ea5061e26e3b4b17c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_74627bf3c9b9637e5cc2169f6ab72b2b = $(`<div id="html_74627bf3c9b9637e5cc2169f6ab72b2b" style="width: 100.0%; height: 100.0%;">Cidade: Diamantino&lt;br&gt;Descrição: nublado&lt;br&gt;Temperatura: 35.58°C&lt;br&gt;Umidade: 36%</div>`)[0];
+                popup_dbc740387035800ea5061e26e3b4b17c.setContent(html_74627bf3c9b9637e5cc2169f6ab72b2b);
+            
+        
+
+        marker_3c4b8c83b7fba101c3d34db0d291431a.bindPopup(popup_dbc740387035800ea5061e26e3b4b17c)
+        ;
+
+        
+    
+    
+            var feature_group_9140dc04d20bf41680a1ef6e6483fd1b = L.featureGroup(
+                {}
+            ).addTo(map_234c42283a43a181da57e1df8f5c5f44);
+        
+    
+            var tile_layer_430105e5055608526d257332e010d8ab = L.tileLayer(
+                "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/c3ddf490f59f84b6327f63af4cb293b8-51fffac86083696c2ea059cbc13e43c3/tiles/{z}/{x}/{y}",
+                {"attribution": "Focos de Inc\u00eandio em Mato Grosso", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(feature_group_9140dc04d20bf41680a1ef6e6483fd1b);
+        
+    
+            var tile_layer_3dcc5e5dc3b27fafc54c1b49f1936c76 = L.tileLayer(
+                "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/eeff36e604a61628133d5e79c26a4cb8-141c3d1f882966db93e4d70aebf3ef35/tiles/{z}/{x}/{y}",
+                {"attribution": "Google Earth Engine", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_234c42283a43a181da57e1df8f5c5f44);
+        
+    
+            var layer_control_94c98f5d02ff2840178cfc66ace5d993 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_face2067126ce66264036f61539a7afe,
+                },
+                overlays :  {
+                    "Cidades" : feature_group_b834366913e52d3ab308fa969f48828e,
+                    "Focos de Inc\u00eandio em Mato Grosso" : feature_group_9140dc04d20bf41680a1ef6e6483fd1b,
+                    "Precipitation (mm/hr)" : tile_layer_3dcc5e5dc3b27fafc54c1b49f1936c76,
+                },
+            };
+            L.control.layers(
+                layer_control_94c98f5d02ff2840178cfc66ace5d993.base_layers,
+                layer_control_94c98f5d02ff2840178cfc66ace5d993.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_234c42283a43a181da57e1df8f5c5f44);
+        
+    
+            var tile_layer_7350514e3d6c55091bbba9beebc3956d = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_0380ca14e08f87e36f36243f15cca913 = new L.Control.MiniMap(
+                tile_layer_7350514e3d6c55091bbba9beebc3956d,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_234c42283a43a181da57e1df8f5c5f44.addControl(mini_map_0380ca14e08f87e36f36243f15cca913);
+        
+</script>
+</html>
