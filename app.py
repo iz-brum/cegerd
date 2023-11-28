@@ -44,7 +44,7 @@ def login():
 
     if user and user.password == senha:
         login_user(user)
-        return redirect('/indexcomp') if user.role == 'user' else redirect('/index')
+        return redirect('/indexcomp') if user.role == 'user' else redirect('/pagina-inicial')
     else:
         error = "Senha incorreta. Tente novamente."
         return render_template('login.html', error=error)
