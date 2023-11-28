@@ -1,3 +1,5 @@
+#app.py
+
 import os
 from flask_cors import CORS
 from flask import Flask, render_template, redirect, request, jsonify
@@ -5,7 +7,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, cur
 from alert import web  # Importe o módulo web.py
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)   
 
 # Configurar o Flask-Login
 login_manager = LoginManager()
@@ -34,7 +36,7 @@ def load_user(user_id):
 
 @app.route('/')
 def home():
-    return render_template('login.html')
+    return render_template('pagina-inicial.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -44,7 +46,7 @@ def login():
 
     if user and user.password == senha:
         login_user(user)
-        return redirect('/indexcomp') if user.role == 'user' else redirect('/index')
+        return redirect('/pagina-inicial') if user.role == 'user' else redirect('/index')
     else:
         error = "Senha incorreta. Tente novamente."
         return render_template('login.html', error=error)
@@ -58,10 +60,10 @@ def mapa_comp():
     else:
         return redirect('/index')  # Redirecionar usuários não autorizados
 
-@app.route('/index')
+@app.route('/pagina-inicial')
 @login_required
 def pagina():
-    return render_template('index.html')
+    return render_template('pagina-inicial.html')
 
 @app.route('/logout')
 @login_required
