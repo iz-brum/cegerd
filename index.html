@@ -141,22 +141,12 @@
         function dispararAlerta() {
             console.log('Enviando solicitação...');
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', './disparar_alerta_web', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-    
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4) {
-                    if (xhr.status == 200) {
-                        var data = JSON.parse(xhr.responseText);
-                        alert(data.message);
-                    } else {
-                        console.error('Erro:', xhr.statusText);
-                    }
-                }
-            };
-    
-            xhr.send();
+            fetch('./disparar_alerta_web', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => console.error('Erro:', error));
         }
         
 
@@ -165,16 +155,5 @@
         });
     </script>
 </body>
-<!-- 
-    fetch('/disparar_alerta_web', { method: 'POST' })
-                .then(response => {
-                    console.log('Resposta recebida:', response);
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Dados recebidos:', data);
-                    alert(data.message);
-                })
-                .catch(error => console.error('Erro:', error));
- -->
+
 </html>
