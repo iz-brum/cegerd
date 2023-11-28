@@ -82,11 +82,11 @@ def mapa():
 @app.route('/disparar_alerta_web', methods=['POST'])
 def disparar_alerta_web():
     try:
-        # Importe as funções necessárias do web.py
+        print('Chamando obter_dados_do_navegador...')
         from alert.web import obter_dados_do_navegador, verificar_enviar_email
-
-        # Chame as funções do web.py
         dados_do_navegador = obter_dados_do_navegador()
+        
+        print('Chamando verificar_enviar_email...')
         verificar_enviar_email(dados_do_navegador)
 
         return jsonify({'message': 'Alerta disparado com sucesso!'})
