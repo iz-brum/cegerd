@@ -4,6 +4,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, cur
 from alert import web  # Importe o módulo web.py
 
 app = Flask(__name__)
+CORS(app)
 
 # Configurar o Flask-Login
 login_manager = LoginManager()
