@@ -10,7 +10,7 @@ CORS(app)
 # Configurar o Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'pagina-inicial'  # Especificar o endpoint da página de login
+login_manager.login_view = 'login'  # Especificar o endpoint da página de login
 
 # Definir a chave secreta a partir da variável de ambiente ou usar um valor padrão
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'defesa199')
@@ -36,7 +36,13 @@ def load_user(user_id):
 def home():
     return render_template('pagina-inicial.html')
 
-@app.route('/pagina-inicial', methods=['POST'])
+@app.route('/pagina-inicial')
+@login_required
+def pagina_inicial():
+    return render_template('pagina-inicial.html')
+
+
+@app.route('/login', methods=['POST'])
 def login():
     nome = request.form.get('nome')
     senha = request.form.get('senha')
