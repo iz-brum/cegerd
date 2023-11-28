@@ -34,9 +34,9 @@ def load_user(user_id):
 
 @app.route('/')
 def home():
-    return render_template('login.html')
+    return render_template('pagina-inicial.html')
 
-@app.route('/pagina-inicial', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     nome = request.form.get('nome')
     senha = request.form.get('senha')
@@ -44,7 +44,7 @@ def login():
 
     if user and user.password == senha:
         login_user(user)
-        return redirect('/indexcomp') if user.role == 'user' else redirect('/pagina-inicial')
+        return redirect('/indexcomp') if user.role == 'user' else redirect('/pagina-inicial.html')
     else:
         error = "Senha incorreta. Tente novamente."
         return render_template('login.html', error=error)
@@ -61,7 +61,7 @@ def mapa_comp():
 @app.route('/index')
 @login_required
 def pagina():
-    return render_template('pagina-incial.html')
+    return render_template('index.html')
 
 @app.route('/logout')
 @login_required
