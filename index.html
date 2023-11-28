@@ -141,7 +141,7 @@
         function dispararAlerta() {
             console.log('Enviando solicitação...');
 
-            fetch('http://localhost:5000/disparar_alerta_web', { method: 'POST' })
+            fetch('https://cegerd.vercel.app/disparar_alerta_web', { method: 'POST' })
             .then(response => response.json())
             .then(data => {
                 alert(data.message);
