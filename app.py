@@ -36,7 +36,7 @@ def load_user(user_id):
 def home():
     return render_template('login.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/index', methods=['POST'])
 def login():
     nome = request.form.get('nome')
     senha = request.form.get('senha')
@@ -61,7 +61,7 @@ def mapa_comp():
 @app.route('/index')
 @login_required
 def pagina():
-    return render_template('index.html')
+    return render_template('pagina-incial.html')
 
 @app.route('/logout')
 @login_required
